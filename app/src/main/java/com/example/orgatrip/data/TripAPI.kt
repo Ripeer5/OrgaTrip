@@ -1,6 +1,8 @@
 package com.example.orgatrip.data
 
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface TripAPI {
@@ -12,7 +14,10 @@ interface TripAPI {
     suspend fun getTripById(@Path("id") tripId:String): Trip
 
     companion object {
-        const val BASE_URL = "http://192.168.100.65:8080"
+        const val BASE_URL = "http://192.168.1.81:8080"
     }
+
+    @POST("/trip")
+    suspend fun insertTrip(@Body trip: Trip)
 
 }

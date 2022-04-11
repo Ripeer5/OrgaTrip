@@ -1,4 +1,4 @@
-package com.example.orgatrip
+package com.example.orgatrip.presentation.trip
 
 import android.util.Log
 import androidx.compose.runtime.State
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class TripViewModel @Inject constructor(
     private val api: TripAPI
 ): ViewModel() {
 
@@ -22,8 +22,14 @@ class MainViewModel @Inject constructor(
 
 
     init {
-        getTrip()
+        getTripById("LondonId")
 
+    }
+
+    fun insertTrip(trip: Trip) {
+        viewModelScope.launch {
+            api.insertTrip(trip)
+        }
     }
 
     fun getTrip(){
@@ -45,7 +51,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    /*fun getTripById(tripId: String) {
+    fun getTripById(tripId: String) {
         viewModelScope.launch {
             try {
                 _state.value = state.value.copy(
@@ -62,7 +68,7 @@ class MainViewModel @Inject constructor(
                 )
             }
         }
-    }*/
+    }
 
     data class TripState(
         val trip: Trip? = null,
