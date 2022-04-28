@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "693944314132",
+    "project_id": "orgatrip-7e8d9",
+    "storage_bucket": "orgatrip-7e8d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693944314132:android:f25bc91f7c04c67316fa01",
+        "android_client_info": {
+          "package_name": "com.ripeer.orgatrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693944314132-n3gpcd6qbde0qnfk1hil8jviub3pj8dn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ripeer.orgatrip",
+            "certificate_hash": "fff7bd6df7811e7a01e332fca810607cac6cd22e"
+          }
+        },
+        {
+          "client_id": "693944314132-2b1c08kne1r6m4cv2lmgmsqkpqvpq7t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJs3YxvNA3IUNMGq99qIa2vi-hNX6nspU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693944314132-2b1c08kne1r6m4cv2lmgmsqkpqvpq7t3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
