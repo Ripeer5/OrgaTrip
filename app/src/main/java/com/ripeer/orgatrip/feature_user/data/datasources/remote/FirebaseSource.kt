@@ -1,4 +1,4 @@
-package com.ripeer.orgatrip.feature_user.data
+package com.ripeer.orgatrip.feature_user.data.datasources.remote
 
 import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject

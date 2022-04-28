@@ -2,7 +2,7 @@ package com.ripeer.orgatrip.feature_user.domain.use_case.login
 
 import com.ripeer.orgatrip.feature_user.domain.use_case.ValidationResult
 
-class ValidatePassword {
+class LoginValidatePassword {
 
     fun execute(password: String): ValidationResult {
         if(password.length < 8) {

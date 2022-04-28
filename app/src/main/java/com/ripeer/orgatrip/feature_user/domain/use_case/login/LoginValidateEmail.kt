@@ -3,7 +3,7 @@ package com.ripeer.orgatrip.feature_user.domain.use_case.login
 import android.util.Patterns
 import com.ripeer.orgatrip.feature_user.domain.use_case.ValidationResult
 
-class ValidateEmail {
+class LoginValidateEmail {
     fun execute(email: String): ValidationResult {
         if(email.isBlank()) {
             return ValidationResult(

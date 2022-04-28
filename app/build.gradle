@@ -86,6 +86,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
 
+    //Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+
     //Ktor client
     def ktor_version = "1.6.3"
     implementation "io.ktor:ktor-client-core:$ktor_version"

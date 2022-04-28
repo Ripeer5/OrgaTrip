@@ -1,8 +1,5 @@
-package com.ripeer.orgatrip.feature_user.presentation.registration
+package com.ripeer.orgatrip.feature_user.presentation.login
 
-import android.content.ContentValues.TAG
-import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -16,17 +13,15 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.ripeer.orgatrip.core.util.Screens
 import com.ripeer.orgatrip.feature_user.presentation.ValidationEvent
-import javax.inject.Inject
 
 @Composable
-fun RegistrationScreen (
+fun LoginScreen (
     navController: NavController,
-    viewModel: RegistrationViewModel = hiltViewModel()
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
 
     val state = viewModel.state
@@ -36,8 +31,9 @@ fun RegistrationScreen (
         viewModel.validationEvents.collect { event ->
             when (event) {
                 is ValidationEvent.Success -> {
-
                     navController.navigate(Screens.HomeScreen.route)
+
+
 
                     /*auth.createUserWithEmailAndPassword("bob@t.fr", "bobbob5").addOnSuccessListener {
                         Toast.makeText(context, "regsiter successful", Toast.LENGTH_SHORT).show()
@@ -59,7 +55,7 @@ fun RegistrationScreen (
         TextField(
             value = state.email,
             onValueChange = {
-                viewModel.onEvent(RegistrationFormEvent.EmailChanged(it))
+                viewModel.onEvent(LoginFormEvent.EmailChanged(it))
             },
             isError = state.emailError != null,
             modifier = Modifier.fillMaxWidth(),
@@ -82,7 +78,7 @@ fun RegistrationScreen (
         TextField(
             value = state.password,
             onValueChange = {
-                viewModel.onEvent(RegistrationFormEvent.PasswordChanged(it))
+                viewModel.onEvent(LoginFormEvent.PasswordChanged(it))
             },
             isError = state.passwordError != null,
             modifier = Modifier.fillMaxWidth(),
@@ -103,52 +99,9 @@ fun RegistrationScreen (
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        TextField(
-            value = state.repeatedPassword,
-            onValueChange = {
-                viewModel.onEvent(RegistrationFormEvent.RepeatedPasswordChanged(it))
-            },
-            isError = state.repeatedPasswordError != null,
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = {
-                Text(text = "Repeat password")
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Password
-            ),
-            visualTransformation = PasswordVisualTransformation()
-        )
-        if (state.repeatedPasswordError != null) {
-            Text(
-                text = state.repeatedPasswordError,
-                color = MaterialTheme.colors.error,
-                modifier = Modifier.align(Alignment.End)
-            )
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Checkbox(
-                checked = state.acceptedTerms,
-                onCheckedChange = {
-                    viewModel.onEvent(RegistrationFormEvent.AcceptTerms(it))
-                }
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Accept terms")
-        }
-        if (state.termsError != null) {
-            Text(
-                text = state.termsError,
-                color = MaterialTheme.colors.error,
-            )
-        }
-
         Button(
             onClick = {
-                viewModel.onEvent(RegistrationFormEvent.Submit)
+                viewModel.onEvent(LoginFormEvent.Submit)
             },
             modifier = Modifier.align(Alignment.End)
         ) {

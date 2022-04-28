@@ -15,6 +15,8 @@ import com.ripeer.orgatrip.feature_trip.domain.repository.TripApiKtorClient
 import com.ripeer.orgatrip.feature_trip.presentation.trip.TripViewModel
 import com.ripeer.orgatrip.feature_trip.presentation.trip.TripsScreen
 import com.ripeer.orgatrip.core.util.Screens
+import com.ripeer.orgatrip.feature_trip.presentation.HomeScreen
+import com.ripeer.orgatrip.feature_user.presentation.login.LoginScreen
 import com.ripeer.orgatrip.feature_user.presentation.registration.RegistrationScreen
 import com.ripeer.orgatrip.feature_user.presentation.welcome.WelcomeScreen
 import com.ripeer.orgatrip.ui.theme.OrgaTripTheme
@@ -35,11 +37,14 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = Screens.WelcomeScreen.route
                     ){
+                        composable(route = Screens.HomeScreen.route) {
+                            HomeScreen(navController = navController)
+                        }
                         composable(route = Screens.TripScreen.route) {
                             TripsScreen(navController = navController)
                         }
                         composable(route = Screens.LoggingScreen.route) {
-
+                            LoginScreen(navController = navController)
                         }
                         composable(route = Screens.RegisterScreen.route) {
                             RegistrationScreen(navController = navController)
