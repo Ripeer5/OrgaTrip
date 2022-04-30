@@ -27,11 +27,11 @@ import io.ktor.client.features.logging.*
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
+    /*@Provides
     @Singleton
     fun provideMongoDbSource(): MongoDbSource {
         return MongoDbSource(HttpClient())
-    }
+    }*/
 
     @Provides
     @Singleton

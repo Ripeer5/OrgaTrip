@@ -2,7 +2,7 @@ package com.ripeer.orgatrip.feature_user.data.repository
 
 import com.ripeer.orgatrip.feature_user.data.datasources.remote.FirebaseSource
 import com.ripeer.orgatrip.feature_user.data.datasources.remote.MongoDbSource
-import com.ripeer.orgatrip.feature_user.data.datasources.remote.UserRequestDto
+import com.ripeer.orgatrip.feature_user.data.model.UserRequestDto
 import com.ripeer.orgatrip.feature_user.domain.repository.Repository
 import javax.inject.Inject
 

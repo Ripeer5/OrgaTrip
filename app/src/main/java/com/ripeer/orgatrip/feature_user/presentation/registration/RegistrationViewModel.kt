@@ -6,8 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.ripeer.orgatrip.feature_user.data.datasources.remote.UserRequestDto
-import com.ripeer.orgatrip.feature_user.data.repository.RepositoryImpl
+import com.ripeer.orgatrip.feature_user.data.model.UserRequestDto
 import com.ripeer.orgatrip.feature_user.domain.repository.Repository
 import com.ripeer.orgatrip.feature_user.domain.use_case.registration.ValidateEmail
 import com.ripeer.orgatrip.feature_user.domain.use_case.registration.ValidatePassword
@@ -93,7 +92,9 @@ class RegistrationViewModel @Inject constructor(
         repository.signUpUser(state.email, state.password).addOnSuccessListener {
             viewModelScope.launch {
                 validationEventChannel.send(ValidationEvent.Success)
-                repository.saveUser(UserRequestDto("test", "testEmail", "testId"))
+                repository.saveUser(UserRequestDto("defaultName", state.email,
+                    auth.currentUser?.uid ?: "ErrorId"
+                ))
 
             }
         }

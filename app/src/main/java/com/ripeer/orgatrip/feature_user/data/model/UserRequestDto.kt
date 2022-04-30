@@ -1,4 +1,4 @@
-package com.ripeer.orgatrip.feature_user.data.datasources.remote
+package com.ripeer.orgatrip.feature_user.data.model
 
 import kotlinx.serialization.Serializable
 
